@@ -1,6 +1,6 @@
 # SPEC 01 — MVP visual de Arcade Vault
 
-> **Status:** Approved
+> **Status:** Implemented
 > **Depends on:** —
 > **Date:** 2026-09-18
 > **Objective:** Migrar el prototipo estático de `references/templates/` a rutas reales de Next.js 16 App Router, implementando solo la parte visual e interactiva de las 5 pantallas (Biblioteca, Detalle, Reproductor placeholder, Auth y Salón de la Fama), sin lógica de juego real ni persistencia entre recargas.
@@ -76,17 +76,17 @@ export interface Session {
 
 ## Acceptance criteria
 
-- [ ] `/` muestra la Biblioteca con buscador y chips de categoría que filtran el grid de tarjetas en el cliente.
-- [ ] `/juegos/[id]` muestra la información del juego (etiquetas, descripción, estadísticas) y el leaderboard mock correspondiente a ese `id`.
-- [ ] Un `id` de juego inexistente en `/juegos/[id]` muestra la página 404 de Next.js.
-- [ ] `/juegos/[id]/jugar` muestra el HUD (jugador, puntuación, vidas, nivel), el marco CRT con la simulación visual, y permite pausar/reanudar.
-- [ ] Terminar la partida en `/juegos/[id]/jugar` abre el modal de fin de partida, permite ingresar iniciales y guardar la puntuación en el `SessionProvider` (sin persistir tras recargar).
-- [ ] `/auth` permite alternar entre "Iniciar sesión" y "Crear cuenta", entrar como invitado, y redirige a `/` dejando una sesión activa en memoria.
-- [ ] `/salon-de-la-fama` muestra podio (top 3), tabla completa por juego seleccionado, y la fila "tu mejor marca" solo cuando hay sesión activa.
-- [ ] El `Nav` resalta la ruta activa, es responsive (menú hamburguesa en móvil) y muestra el nombre de usuario o el botón de inicio de sesión según el estado del `SessionProvider`.
-- [ ] Recargar la página en cualquier ruta borra la sesión y las puntuaciones guardadas (confirmando que no hay persistencia).
-- [ ] No queda ningún archivo `.jsx` ni referencia a React vía CDN/Babel dentro de `app/` o `common/`.
-- [ ] `bun run lint` y `bun run build` terminan sin errores.
+- [x] `/` muestra la Biblioteca con buscador y chips de categoría que filtran el grid de tarjetas en el cliente.
+- [x] `/juegos/[id]` muestra la información del juego (etiquetas, descripción, estadísticas) y el leaderboard mock correspondiente a ese `id`.
+- [x] Un `id` de juego inexistente en `/juegos/[id]` muestra la página 404 de Next.js.
+- [x] `/juegos/[id]/jugar` muestra el HUD (jugador, puntuación, vidas, nivel), el marco CRT con la simulación visual, y permite pausar/reanudar.
+- [x] Terminar la partida en `/juegos/[id]/jugar` abre el modal de fin de partida, permite ingresar iniciales y guardar la puntuación en el `SessionProvider` (sin persistir tras recargar).
+- [x] `/auth` permite alternar entre "Iniciar sesión" y "Crear cuenta", entrar como invitado, y redirige a `/` dejando una sesión activa en memoria.
+- [x] `/salon-de-la-fama` muestra podio (top 3), tabla completa por juego seleccionado, y la fila "tu mejor marca" solo cuando hay sesión activa.
+- [x] El `Nav` resalta la ruta activa, es responsive (menú hamburguesa en móvil) y muestra el nombre de usuario o el botón de inicio de sesión según el estado del `SessionProvider`.
+- [x] Recargar la página en cualquier ruta borra la sesión y las puntuaciones guardadas (confirmando que no hay persistencia).
+- [x] No queda ningún archivo `.jsx` ni referencia a React vía CDN/Babel dentro de `app/` o `common/`.
+- [x] `bun run lint` y `bun run build` terminan sin errores.
 
 ## Decisions
 
