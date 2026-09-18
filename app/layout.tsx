@@ -1,6 +1,7 @@
+import { Nav } from "@/common/components/nav";
+import { SessionProvider } from "@/common/session/session-context";
 import type { Metadata } from "next";
 import { Courier_Prime, JetBrains_Mono, Press_Start_2P } from "next/font/google";
-import { SessionProvider } from "@/common/session/session-context";
 import "./globals.css";
 
 const pixelFont = Press_Start_2P({
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <div className="av-noise" />
         <SessionProvider>
           <div id="root">
+            <Nav />
             <main className="av-main">{children}</main>
             <footer
               style={{
