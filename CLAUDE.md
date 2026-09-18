@@ -10,6 +10,9 @@ Arcade Vault: plataforma para jugar online y competir por puntuación. El proyec
 
 El código de la app aún no está implementado: actualmente es el scaffold por defecto de `create-next-app` (App Router).
 
+## Skills
+Usa siempre /frontend-design para diseñar la interfaaz de usuario.
+
 ## Commands
 
 Gestor de paquetes: `bun` (ver `packageManager` en package.json).

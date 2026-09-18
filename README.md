@@ -14,3 +14,11 @@ https://github.com/Klerith/fernando-skills
 ```bash
 npx skills@latest add Klerith/fernando-skills
 ```
+
+## Commands
+```bash
+bun run dev     #start dev serve (port 3000)
+bun run build   # production build
+bun run start   # serve production build
+bun run lint    # EsLint (Next.js. config)
+```
