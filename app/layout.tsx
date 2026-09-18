@@ -1,5 +1,7 @@
+import { Nav } from "@/common/components/nav";
+import { SessionProvider } from "@/common/session/session-context";
 import type { Metadata } from "next";
-import { Press_Start_2P, JetBrains_Mono, Courier_Prime } from "next/font/google";
+import { Courier_Prime, JetBrains_Mono, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 
 const pixelFont = Press_Start_2P({
@@ -33,22 +35,25 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <div className="av-bg" />
         <div className="av-noise" />
-        <div id="root">
-          <main className="av-main">{children}</main>
-          <footer
-            style={{
-              borderTop: "1px solid var(--line)",
-              padding: "20px 32px",
-              textAlign: "center",
-              color: "var(--ink-faint)",
-              fontFamily: "var(--mono)",
-              fontSize: 11,
-              letterSpacing: "0.16em",
-            }}
-          >
-            © 2026 ARCADE VAULT · HECHO CON PIXELES Y NEÓN · v2.6.0
-          </footer>
-        </div>
+        <SessionProvider>
+          <div id="root">
+            <Nav />
+            <main className="av-main">{children}</main>
+            <footer
+              style={{
+                borderTop: "1px solid var(--line)",
+                padding: "20px 32px",
+                textAlign: "center",
+                color: "var(--ink-faint)",
+                fontFamily: "var(--mono)",
+                fontSize: 11,
+                letterSpacing: "0.16em",
+              }}
+            >
+              © 2026 ARCADE VAULT · HECHO CON PIXELES Y NEÓN · v2.6.0
+            </footer>
+          </div>
+        </SessionProvider>
       </body>
     </html>
   );
