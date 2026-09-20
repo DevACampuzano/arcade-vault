@@ -1,6 +1,6 @@
 # SPEC 02 — Home landing y Acerca de
 
-> **Status:** Approved
+> **Status:** Implemented
 > **Depends on:** SPEC 01
 > **Date:** 2026-09-20
 > **Objective:** Migrar `references/templates/home-about/*.jsx` a Next.js 16 App Router, moviendo la Biblioteca actual de `/` a `/games` para liberar `/` como landing page (Home) de marketing, y agregando una pantalla "Acerca de" con formulario de contacto simulado en `/about`.
@@ -42,16 +42,16 @@ No se introduce ningún tipo, estructura de datos ni módulo nuevo en `app/data/
 
 ## Acceptance criteria
 
-- [ ] `/` muestra la landing page (Home) con hero, siluetas flotantes, sección "por qué Arcade Vault", mini-rail de juegos, estadísticas, actividad en vivo, precios/FAQ y CTA final.
-- [ ] `/games` muestra la Biblioteca (buscador, chips de categoría, grid de `GameCard`) exactamente con el mismo comportamiento que tenía antes en `/`.
-- [ ] `/about` muestra el hero de misión, la fila de highlights, y la sección de contacto.
-- [ ] En `/about`, enviar el formulario de contacto con algún campo vacío dispara el efecto visual `shake` y no muestra el mensaje de éxito.
-- [ ] En `/about`, enviar el formulario con los tres campos completos muestra la animación de "terminal de éxito" con el nombre ingresado, y el botón "enviar otro mensaje" limpia el formulario sin recargar la página.
-- [ ] El Nav muestra "Inicio", "Biblioteca", "Salón de la Fama" y "Acerca de", cada uno resaltado como activo en su ruta correspondiente (`/`, `/games` + `/juegos/*`, `/salon-de-la-fama`, `/about`), tanto en escritorio como en el panel móvil.
-- [ ] Los botones "EXPLORAR JUEGOS" y "VER TODOS LOS JUEGOS →" del Home navegan a `/games`; los botones "CREAR CUENTA" y "EMPEZAR GRATIS →" navegan a `/auth`; cada tarjeta del mini-rail navega a `/juegos/[id]` del juego correspondiente; "VER SALÓN →" navega a `/salon-de-la-fama`.
-- [ ] Los enlaces "volver a la biblioteca" en Detalle de juego, Reproductor y Salón de la Fama apuntan a `/games` (ya no a `/`).
-- [ ] Las secciones marcadas con `.reveal` en Home y About aplican la animación de entrada al hacer scroll hasta ellas.
-- [ ] `bun run lint` y `bun run build` terminan sin errores.
+- [x] `/` muestra la landing page (Home) con hero, siluetas flotantes, sección "por qué Arcade Vault", mini-rail de juegos, estadísticas, actividad en vivo, precios/FAQ y CTA final.
+- [x] `/games` muestra la Biblioteca (buscador, chips de categoría, grid de `GameCard`) exactamente con el mismo comportamiento que tenía antes en `/`.
+- [x] `/about` muestra el hero de misión, la fila de highlights, y la sección de contacto.
+- [x] En `/about`, enviar el formulario de contacto con algún campo vacío dispara el efecto visual `shake` y no muestra el mensaje de éxito.
+- [x] En `/about`, enviar el formulario con los tres campos completos muestra la animación de "terminal de éxito" con el nombre ingresado, y el botón "enviar otro mensaje" limpia el formulario sin recargar la página.
+- [x] El Nav muestra "Inicio", "Biblioteca", "Salón de la Fama" y "Acerca de", cada uno resaltado como activo en su ruta correspondiente (`/`, `/games` + `/juegos/*`, `/salon-de-la-fama`, `/about`), tanto en escritorio como en el panel móvil.
+- [x] Los botones "EXPLORAR JUEGOS" y "VER TODOS LOS JUEGOS →" del Home navegan a `/games`; los botones "CREAR CUENTA" y "EMPEZAR GRATIS →" navegan a `/auth`; cada tarjeta del mini-rail navega a `/juegos/[id]` del juego correspondiente; "VER SALÓN →" navega a `/salon-de-la-fama`.
+- [x] Los enlaces "volver a la biblioteca" en Detalle de juego, Reproductor y Salón de la Fama apuntan a `/games` (ya no a `/`).
+- [x] Las secciones marcadas con `.reveal` en Home y About aplican la animación de entrada al hacer scroll hasta ellas.
+- [x] `bun run lint` y `bun run build` terminan sin errores.
 
 ## Decisions
 
