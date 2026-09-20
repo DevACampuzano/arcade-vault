@@ -10,12 +10,18 @@ export function Nav() {
   const pathname = usePathname();
   const { user, logout } = useSession();
 
-  const isActive = (name: "biblioteca" | "salon" | "auth") => {
+  const isActive = (name: "home" | "biblioteca" | "salon" | "about" | "auth") => {
+    if (name === "home") {
+      return pathname === "/";
+    }
     if (name === "biblioteca") {
-      return pathname === "/" || pathname.startsWith("/juegos/");
+      return pathname === "/games" || pathname.startsWith("/juegos/");
     }
     if (name === "salon") {
       return pathname === "/salon-de-la-fama";
+    }
+    if (name === "about") {
+      return pathname === "/about";
     }
     return pathname === "/auth";
   };
@@ -32,7 +38,10 @@ export function Nav() {
           </div>
         </Link>
         <div className="links">
-          <Link href="/" className={isActive("biblioteca") ? "active" : ""} onClick={close}>
+          <Link href="/" className={isActive("home") ? "active" : ""} onClick={close}>
+            Inicio
+          </Link>
+          <Link href="/games" className={isActive("biblioteca") ? "active" : ""} onClick={close}>
             Biblioteca
           </Link>
           <Link
@@ -41,6 +50,9 @@ export function Nav() {
             onClick={close}
           >
             Salón de la Fama
+          </Link>
+          <Link href="/about" className={isActive("about") ? "active" : ""} onClick={close}>
+            Acerca de
           </Link>
         </div>
         <div className="spacer"></div>
@@ -77,7 +89,10 @@ export function Nav() {
         <div className="pixel neon-cyan" style={{ fontSize: 11, marginBottom: 16 }}>
           MENÚ
         </div>
-        <Link href="/" className={isActive("biblioteca") ? "active" : ""} onClick={close}>
+        <Link href="/" className={isActive("home") ? "active" : ""} onClick={close}>
+          Inicio
+        </Link>
+        <Link href="/games" className={isActive("biblioteca") ? "active" : ""} onClick={close}>
           Biblioteca
         </Link>
         <Link
@@ -86,6 +101,9 @@ export function Nav() {
           onClick={close}
         >
           Salón de la Fama
+        </Link>
+        <Link href="/about" className={isActive("about") ? "active" : ""} onClick={close}>
+          Acerca de
         </Link>
         <Link href="/auth" className={isActive("auth") ? "active" : ""} onClick={close}>
           {user ? "Cuenta" : "Iniciar Sesión"}
